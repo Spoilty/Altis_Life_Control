@@ -14,12 +14,14 @@ $dbpswd = "SecretPassword";    		//Database User Password
 
 $debug = "0";                       //Enable Debug 
 $disable_login = "0";               //Disable Login System 1=disabled 0=enabled
+$setting_rows = 20;                 //How Many Rows should be displayed in a result page
+$settings_money_format = "US";      //SETUP THE NUMBER FORMAT Values: "EUR" = 1.000€ | "US" = $1.000 | Nothing = 1000 
 
 /////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Altis Life Mods ////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 
-$housing_mario = "0";               //Activate Housing by Mario https://bitbucket.org/MarioZ2002/altis-life-housing/wiki/Home
+$housing_mario = "1";               //Activate Housing by Mario https://bitbucket.org/MarioZ2002/altis-life-housing/wiki/Home
 
 /////////////////////////////////////////////////////////////////////////////////////
 //////////////////// DONT CHANGE NOTHING IF YOU /////////////////////////////////////

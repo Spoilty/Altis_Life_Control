@@ -41,9 +41,6 @@ startHTML();
                 </div>
             </div>
         </div>
-        <?php
-        if($housing_mario == "1"){ 
-        ?>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
                 <img data-src="holder.js/300x200" src="../img/houses_list.jpg" alt="Houses List">
@@ -54,9 +51,6 @@ startHTML();
                 </div>
             </div>
         </div>
-        <?php
-        }
-        ?>
     </div>
 <?php
 //GET DATA FROM DATABASE TO DISPLAY RANKINGS

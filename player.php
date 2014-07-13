@@ -114,7 +114,7 @@ else{
                 </h4>
             </li>
             <li class="list-group-item">
-                <p class="text-center"><img src="img/bank.png"> <strong><?php echo $row->bankacc;?>$</strong> <img src="img/money.png"> <strong><?php echo $row->cash;?>$</strong></p>
+                <p class="text-center"><img src="img/bank.png"> <strong><?php echo money($row->bankacc);?></strong> <img src="img/money.png"> <strong><?php echo money($row->cash);?></strong></p>
             </li>
         </ul>
     </div>
@@ -135,8 +135,7 @@ else{
         <li><a href="#civ_inventory">Civ Inventory</a></li>
         <li><a href="#cop_inventory">Cop Inventory</a></li>
         <li><a href="#vehicles">Vehicles</a></li>
-        <?php if($housing_mario == "1"){ echo "<li><a href='#houses'>Houses</a></li>";}
-        ?>
+        <li><a href='#houses'>Houses</a></li>
     </ul>
 <!-- TAB CONTENT -->
     <div id="player_tabs_content" class="tab-content">
@@ -192,6 +191,31 @@ else{
                         }
                         else{
                             echo "<span class='label label-danger' style='margin-right:3px; line-height:2;'>".substr($cop_licenses[$x],0,-2)."</span> "; 
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    MEDIC LICENSES
+                </div>            
+                <div class="well ">
+                    <!-- COP Licenses CONTENT -->
+                    <?php 
+                    //Format the String of the Licenses to a nice layout
+                    $med_licenses = array();
+                    $med_licenses = explode("],[", $row->med_licenses);
+                    $med_licenses = str_replace("]]\"","",$med_licenses);
+                    $med_licenses = str_replace("\"[[","",$med_licenses);
+                    $med_licenses = str_replace("`","",$med_licenses);
+                    //CREATING OUTPUT        
+                    for ( $x = 0; $x < count ($med_licenses); $x++){
+                        if(strpos($med_licenses[$x], "1")!==false){
+                            echo "<span class='label label-success' style='margin-right:3px; line-height:2;'>".substr($med_licenses[$x],0,-2)."</span> ";    
+                        }
+                        else{
+                            echo "<span class='label label-danger' style='margin-right:3px; line-height:2;'>".substr($med_licenses[$x],0,-2)."</span> "; 
                         }
                     }
                     ?>
@@ -265,7 +289,7 @@ else{
             <?php while($row_houses = mysql_fetch_object($houses_SQL)){ ?>
                 <tr>
                     <td><?php echo $row_houses->id;?></td>
-                    <td><?php echo "<a href='houses.php?id=".$row_houses->house_id."'>".$row_houses->house_id."</a>";?></td>
+                    <td><?php echo $row_houses->house_id;?></td>
                     <td style="word-wrap: break-word;"><?php echo $row_houses->storage;?></td>
                     <td style="word-wrap: break-word;"><?php echo $row_houses->trunk;?></td>
                     <td style="word-wrap: break-word;"><?php echo $row_houses->weapon_storage;?></td>
@@ -281,7 +305,40 @@ else{
 <?php 
 //END IF HOUSING
     }
-?>
+    else
+    {
+    //START REAL ALTIS LIFE HOUSING
+        $houses_SQL = mysql_query("SELECT * FROM houses WHERE pid = ".$row->playerid."");
+        
+        ?>
+        <div class="tab-pane fade" id="houses">
+            <table class="table table-hover">
+                <tr>
+                    <td><strong>#</strong> </td>
+                    <td><strong>Position</strong></td>
+                    <td><strong>Inventory</strong></td>
+                    <td><strong>Containers</strong></td>
+                    <td><strong>Owned</strong></td>
+                </tr>
+            <?php while($row_houses = mysql_fetch_object($houses_SQL)){ ?>
+                <tr>
+                    <td><?php echo $row_houses->id;?></td>
+                    <td><?php echo $row_houses->pos;?></td>
+                    <td style="word-wrap: break-word;"><?php echo $row_houses->inventory;?></td>
+                    <td style="word-wrap: break-word;"><?php echo $row_houses->containers;?></td>
+                    <td><?php echo $row_houses->owned;?></td>
+                </tr>
+            <?php 
+            //END WHILE
+                } ?>
+            </table>
+        </div>
+    <?php
+    //END OF THE FAMOUS TONIC HOUSING
+            }
+    ?>
+
+
     </div>
     </div>
 </div>

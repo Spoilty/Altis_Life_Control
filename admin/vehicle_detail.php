@@ -92,7 +92,10 @@ $row = mysql_fetch_object($vehicle_detail_SQL);
                             if ($row->side == "cop"){
                                 echo "<span class='label label-primary' style='margin-right:3px;'><strong>Cop Vehicle</strong></span>";
                             }
-                            else{
+                            elseif ($row->side == "med"){
+                                echo "<span class='label label-danger' style='margin-right:3px;'><strong>Medic Vehicle</strong></span>";
+                            }
+                            elseif ($row->side == "civ"){
                                 echo "<span class='label label-default' style='margin-right:3px;'><strong>Civ Vehicle</strong></span>";
                             }
                             if ($row->active == 1){
