@@ -47,7 +47,7 @@ startHTML();
                 <div class="caption">
                     <h3>Houses List</h3>
                     <p>See the Houses bought by your ritch players. You can see the Inventory, the Owner and the Trunk. Thats so great.</p>
-                    <p><a href="houses.php" class="btn btn-primary" role="button">Houses List</a></p>
+                    <p><a href="house.php" class="btn btn-primary" role="button">Houses List</a></p>
                 </div>
             </div>
         </div>
