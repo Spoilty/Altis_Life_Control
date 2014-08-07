@@ -1,7 +1,7 @@
-ALTIS LIFE CONTROLE BY PICTURECLASS Ver. 0.2
+ALTIS LIFE CONTROL BY PICTURECLASS Ver. 0.2
 
 License:
-Copyright © 2014 Altis Life Control by Pictureclass - Revoplay.de. All Rights Reserved.
+Copyright Â© 2014 Altis Life Control by Pictureclass - Revoplay.de. All Rights Reserved.
 Only for Private Use. No Commercial Use. Advanced Permissions beyond this license may be available at pictureclass@revoplay.de.
 
 Install:
